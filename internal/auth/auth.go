@@ -7,7 +7,7 @@ import (
 
 // GetAPIKey extracts the API key from the Authorization header.
 func GetAPIKey(headers http.Header) string {
-	//authHeader := headers.Get("Authorization")
+	authHeader := headers.Get("Authorization")
 	if authHeader == "" {
 		return ""
 	}
