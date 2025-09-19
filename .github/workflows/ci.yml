@@ -41,6 +41,9 @@ jobs:
         run: staticcheck ./...
 
       - name: check formatting
-        run: go test -z $(go fmt ./...) 
+        run: go test -z $(go fmt ./...)  
+
       - name: Install gosec
-        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest 
+      - name: run gosec
+        run: gosec ./...
