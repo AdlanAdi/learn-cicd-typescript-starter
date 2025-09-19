@@ -1,12 +1,16 @@
 package main
+
 import (
-    "crypto/md5"
-    "fmt"
+	"crypto/sha256"
+	"fmt"
 )
 
+func hashWithSHA256(input string) string {
+	hash := sha256.Sum256([]byte(input))
+	return fmt.Sprintf("%x", hash)
+}
+
 func main() {
-	// main is empty on purpose
-	password := "supersecret"
-    hash := md5.Sum([]byte(password)) // gosec will flag MD5 as weak crypto
-    fmt.Printf("%x\n", hash)
+	data := "supersecret"
+	fmt.Println("SHA-256:", hashWithSHA256(data))
 }
